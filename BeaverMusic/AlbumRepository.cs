@@ -39,6 +39,12 @@ namespace BeaverMusic
             {
                 _indexMap.Remove(id);
                 _albums.RemoveAt(index);
+
+                for (int i = index; i < _albums.Count; i++)
+                {
+                    var album = _albums[i];
+                    _indexMap[album.Id.Value] = i;
+                }
             }
         }
     }
